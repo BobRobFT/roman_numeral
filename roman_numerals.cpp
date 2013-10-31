@@ -2,10 +2,12 @@
 Program: Roman numerals
 Filename: roman_numerals.cpp
 @author: © Bob Roberts 
-@version: 0.0.1
-Last update: 27/10/13
+@version: 0.0.2
+Last update: 29/10/13
 Descritpion: converts an interget into a roman numeral
 */
+
+int getAnswer(int); //prototype 
 
 #include <iostream>
 using namespace std;
@@ -21,9 +23,23 @@ int main(){
 	const int D = 500;       
 	const int M = 1000;
 
-	cout << "Please enter a number to translate into a roman numeral: ";
-	cin >> number;
+	for(int i = 0; i < 20; ++i){
+		cout << "Please enter a number to translate into a roman numeral: ";
+		cin >> number;
+		string answer;
+		answer = getAnswer(number);
+		cout << answer << endl;
+	}
 
+
+
+
+	cin.ignore();
+	cin.get();
+	return 0;
+}
+
+int getAnswer (int number){
 	while(number != 0){
 		while(number >= 1000){
 			cout << "M";
@@ -54,8 +70,4 @@ int main(){
 			number += -1;
 		}
 	}
-
-	cin.ignore();
-	cin.get();
-	return 0;
 }
